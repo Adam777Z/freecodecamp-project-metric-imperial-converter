@@ -40,9 +40,9 @@ suite('Unit Tests', function() {
       done();
     });
     
-    test('Invalid Input (double fraction)', function(done) { // this is actually not an invalid input
-      var input = '1/21/2L';
-      assert.approximately(convertHandler.getNum(input), 0.02381, 0.1); //0.1 tolerance
+    test('Invalid Input (double fraction)', function(done) {
+      var input = '0/20/20L';
+      assert.approximately(convertHandler.getNum(input), 0, 0.1); //0.1 tolerance
       done();
     });
     

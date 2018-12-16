@@ -27,7 +27,7 @@ suite('Functional Tests', function() {
           assert.equal(res.status, 200);
           assert.equal(res.body.initNum, 10);
           assert.equal(res.body.initUnit, 'l');
-          assert.approximately(res.body.returnNum, 2.64172, 0.1);
+          assert.approximately(res.body.returnNum, 2.64172, 0.1); //0.1 tolerance
           assert.equal(res.body.returnUnit, 'gal');
           done();
         });
@@ -74,7 +74,7 @@ suite('Functional Tests', function() {
           assert.equal(res.status, 200);
           assert.equal(res.body.initNum, 1);
           assert.equal(res.body.initUnit, 'kg');
-          assert.approximately(res.body.returnNum, 2.20462, 0.1);
+          assert.approximately(res.body.returnNum, 2.20462, 0.1); //0.1 tolerance
           assert.equal(res.body.returnUnit, 'lbs');
           done();
         });
