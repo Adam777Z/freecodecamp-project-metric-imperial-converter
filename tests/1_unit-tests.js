@@ -40,9 +40,9 @@ suite('Unit Tests', function() {
       done();
     });
     
-    test('Invalid Input (double fraction)', function(done) {
+    test('Invalid Input (double fraction)', function(done) { // this is actually not an invalid input
       var input = '1/21/2L';
-      assert.equal(convertHandler.getNum(input).toFixed(0), 0); // toFixed(0) needed for the test to pass
+      assert.approximately(convertHandler.getNum(input), 0.02381, 0.1); //0.1 tolerance
       done();
     });
     
@@ -60,7 +60,6 @@ suite('Unit Tests', function() {
       var input = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
       input.forEach(function(ele) {
         ele = ele.toLowerCase();
-        //assert
         assert.equal(ele, convertHandler.getUnit(ele));
       });
       done();

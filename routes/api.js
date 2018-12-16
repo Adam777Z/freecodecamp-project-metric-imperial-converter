@@ -39,7 +39,7 @@ module.exports = function (app) {
         errorText = 'invalid unit';
       }
     }
-
+    
     if (errorText != '') {
       return res.json({ error: errorText });
     }
@@ -48,10 +48,7 @@ module.exports = function (app) {
     var returnUnit = convertHandler.getReturnUnit(initUnit);
     
     var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
-
-    //res.json
-    // console.log(req.query.input.split(/(\d+)/).filter(Boolean));
-
+    
     return res.json({ initNum: initNum, initUnit: initUnit, returnNum: returnNum, returnUnit: returnUnit, string: toString });
   });
     
