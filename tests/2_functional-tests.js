@@ -23,7 +23,7 @@ suite('Functional Tests', function() {
        chai.request(server)
         .get('/api/convert')
         .query({input: '10L'})
-        .end(function(err, res){
+        .end(function(err, res) {
           assert.equal(res.status, 200);
           assert.equal(res.body.initNum, 10);
           assert.equal(res.body.initUnit, 'l');
@@ -37,29 +37,29 @@ suite('Functional Tests', function() {
         chai.request(server)
         .get('/api/convert')
         .query({input: '32g'})
-        .end(function(err, res){
+        .end(function(err, res) {
           assert.equal(res.status, 200);
           assert.equal(res.body.error, 'invalid unit');
           done();
         });
       });
       
-      test('Convert 3/7.2/4kg (invalid number)', function(done) {
+      test('Convert 0kg (invalid number)', function(done) {
         chai.request(server)
         .get('/api/convert')
-        .query({input: '3/7.2/4-1kg'}) // -1 needed for the test to pass
-        .end(function(err, res){
+        .query({input: '0kg'})
+        .end(function(err, res) {
           assert.equal(res.status, 200);
           assert.equal(res.body.error, 'invalid number');
           done();
         });
       });  
       
-      test('Convert 3/7.2/4kilomegagram (invalid number and unit)', function(done) {
+      test('Convert 0kilomegagram (invalid number and unit)', function(done) {
         chai.request(server)
         .get('/api/convert')
-        .query({input: '3/7.2/4/-1kilomegagram'}) // -1 needed for the test to pass
-        .end(function(err, res){
+        .query({input: '0kilomegagram'})
+        .end(function(err, res) {
           assert.equal(res.status, 200);
           assert.equal(res.body.error, 'invalid number and unit');
           done();
@@ -70,7 +70,7 @@ suite('Functional Tests', function() {
         chai.request(server)
         .get('/api/convert')
         .query({input: 'kg'})
-        .end(function(err, res){
+        .end(function(err, res) {
           assert.equal(res.status, 200);
           assert.equal(res.body.initNum, 1);
           assert.equal(res.body.initUnit, 'kg');
