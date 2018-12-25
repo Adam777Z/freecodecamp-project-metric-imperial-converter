@@ -1,0 +1,11 @@
+.jumbotron {
+	margin-top: 2rem;
+}
+
+#convertField {
+	width: 150px;
+}
+
+#result {
+	margin: 1rem 0;
+}
