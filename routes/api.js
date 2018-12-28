@@ -16,7 +16,7 @@ module.exports = function (app) {
   var convertHandler = new ConvertHandler();
 
   app.route('/api/convert').get(function (req, res) {
-    if (req.query.input === undefined) {
+    if (req.query.input === undefined || req.query.input === '') {
       return res.json({ error: 'input is required' });
     }
     
