@@ -33,14 +33,14 @@ module.exports = function (app) {
     var initUnit = convertHandler.getUnit(input);
     
     if (initUnit === undefined) {
-      if (errorText != '') {
+      if (errorText !== '') {
         errorText = 'invalid number and unit';
       } else {
         errorText = 'invalid unit';
       }
     }
     
-    if (errorText != '') {
+    if (errorText !== '') {
       return res.json({ error: errorText });
     }
     
